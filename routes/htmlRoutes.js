@@ -1,17 +1,18 @@
 const path = require('path');
-const router = require('express').Router();
 
-// Get the landing page.
-router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
+module.exports = function (app) {
+  // Get the landing page.
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+  });
 
-router.get('/exercise', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/exercise.html'));
-});
+  // Get the exercise page.
+  app.get('/exercise', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/exercise.html'));
+  });
 
-router.get('/stats', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/stats.html'));
-});
-
-module.exports = router;
+  // Get the stats page.
+  app.get('/stats', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/stats.html'));
+  });
+};

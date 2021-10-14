@@ -1,8 +1,9 @@
-const mongoose = require('mongoose');
+// Test the required's from the schema. Consider eliminating index.js.
 
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const WorkoutSchema = new Schema({
+const workoutSchema = new Schema({
   day: {
     type: Date,
     default: Date.now,
@@ -43,8 +44,6 @@ const WorkoutSchema = new Schema({
   ],
 });
 
-const Workout = mongoose.model('Workout', WorkoutSchema);
+const Workout = mongoose.model('Workout', workoutSchema);
 
 module.exports = Workout;
-
-// Test the required's from the schema.
