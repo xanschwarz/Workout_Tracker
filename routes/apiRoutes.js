@@ -28,7 +28,7 @@ module.exports = function (app) {
   // Response to addExercise put request.
   app.put('/api/workouts', (req, res) => {
     workout
-      .updateOne(
+      .findOneAndUpdate(
         { _id: req.params.id },
         {
           $push: {
@@ -46,9 +46,16 @@ module.exports = function (app) {
   });
 
   // Response to createWorkout post request.
-  //   app.post('/api/workouts', (req, res) => {
-  //     // code
-  //   });
+  app.post('/api/workouts', ({ body }, res) => {
+    workout
+      .create(body)
+      .then((dbWorkouts) => {
+        res.json(dbWorkouts);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
 
   // Response to getWorkoutsInRange fetch.
   //   Get most recent 7 workouts -> see examples, .limit(7)?
