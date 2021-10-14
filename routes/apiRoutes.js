@@ -3,10 +3,6 @@ const workout = require('../models/Workout');
 module.exports = function (app) {
   // Response to getLastWorkout fetch. Needs to add totalDuration for front end functionality.
   app.get('/api/workouts', (req, res) => {
-    // db.Workout.find({}).then(function (dbWorkouts) {
-    //   res.json(dbWorkouts);
-    // });
-
     workout
       .aggregate([
         {
@@ -26,7 +22,7 @@ module.exports = function (app) {
   });
 
   // Response to addExercise put request.
-  app.put('/api/workouts', (req, res) => {
+  app.put('/api/workouts/:id', (req, res) => {
     workout
       .findOneAndUpdate(
         { _id: req.params.id },
@@ -57,8 +53,7 @@ module.exports = function (app) {
       });
   });
 
-  // Response to getWorkoutsInRange fetch. Needs to add totalDuration for front end functionality.
-  //   Get most recent 7 workouts -> see examples, .limit(7)?
+  // Response to getWorkoutsInRange fetch. Needs to add totalDuration for front end functionality. Needs to serve up 7 most recent workouts.
   app.get('/api/workouts/range', (req, res) => {
     workout
       .aggregate([
@@ -70,6 +65,12 @@ module.exports = function (app) {
           },
         },
       ])
+      // Sort newest to oldest workouts.
+      .sort({ day: -1 })
+      // Limit response to 7 workouts.
+      .limit(7)
+      // Re-sort to return to oldest to newest workouts.
+      .sort({ day: 1 })
       .then((dbWorkouts) => {
         res.json(dbWorkouts);
       })
