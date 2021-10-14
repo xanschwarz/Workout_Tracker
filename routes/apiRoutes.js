@@ -57,9 +57,24 @@ module.exports = function (app) {
       });
   });
 
-  // Response to getWorkoutsInRange fetch.
+  // Response to getWorkoutsInRange fetch. Needs to add totalDuration for front end functionality.
   //   Get most recent 7 workouts -> see examples, .limit(7)?
-  //   app.get('/api/workouts/range', (req, res) => {
-  //     // code
-  //   });
+  app.get('/api/workouts/range', (req, res) => {
+    workout
+      .aggregate([
+        {
+          $addFields: {
+            totalDuration: {
+              $sum: '$exercises.duration',
+            },
+          },
+        },
+      ])
+      .then((dbWorkouts) => {
+        res.json(dbWorkouts);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
 };
