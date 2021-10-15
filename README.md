@@ -21,11 +21,11 @@ First you will need to fork, then clone, the repository to your local, and make 
 
 ## Usage
 
-You can access the app by installing it and navigating to the localhost port or at the live app ((LINK TO BE ADDED)). Upon navigating to the app you will see a home page that shows a summary of the last workout.
+You can access the app by installing it and navigating to the localhost port or at the live app [here](https://mysterious-beach-52211.herokuapp.com/). Upon navigating to the app you will see a home page that shows a summary of the last workout.
 
 ![Picture of home page with summary using the seed data.](assets/images/initial_home.JPG)<br><br>
 
-Choosing to go to the dashboard will show stats of the total duration and weight lifted for the previous 7 workouts. On start up this will show the seed data.
+Choosing to go to the dashboard will show stats of the total duration and weight lifted for the previous 7 workouts. On start up this will show the seed data if you are not accessing it on Heroku.
 
 ![Picture of dashboard with stats using the seed data.](assets/images/initial_dashboard.JPG)<br><br>
 
@@ -49,7 +49,7 @@ After entering exercises and choosing "Complete," the homepage will show informa
 
 ![Picture of dashboard with stats including input exercises.](assets/images/updated_dash.JPG)<br><br>
 
-You can check out the deployed app ((LINK TO BE ADDED)).
+You can check out the deployed app [here](https://mysterious-beach-52211.herokuapp.com/).
 
 ## License
 
