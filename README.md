@@ -4,7 +4,7 @@
 
 ## Description
 
-The goal of this project was to creat the back end for a workout tracker app. It involves a Mongo database, Mongoose schema, and routes utilizing Express. Upon startup the user is presented a summary of their last workout. The user is also given an option to continue their last workout, which will allow them to add exercises to it. Alternatively they can start a new workout and add exercises to that. There is a dashboard where they can view the total duration and weight lifted from each of their previous seven workouts.
+The goal of this project was to create the back end for a workout tracker app. It involves a Mongo database, Mongoose schema, and routes utilizing Express. Upon startup the user is presented a summary of their last workout. The user is also given an option to continue their last workout, which will allow them to add exercises to it. Alternatively they can start a new workout and add exercises to that. There is a dashboard where they can view the total duration and weight lifted from each of their previous seven workouts.
 
 
 ## Table of Contents
